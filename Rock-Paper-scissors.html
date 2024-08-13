@@ -6,12 +6,20 @@
 </head>
 
 <body>
+	<input class="js-username" type="text" onkeydown="handleNameEntry(event)" placeholder="enter name" />
+	<p class="js-user"></p>
 	<p>Rock Paper Scissorss</p>
 	<button onclick="playRockPaperScissors('Rock')">Rock</button>
 	<button onclick="playRockPaperScissors('Paper')">Paper</button>
 	<button onclick="playRockPaperScissors('Scissors')">Scissors</button>
 	<button onclick="Reset()">Reset</button>
 	<script>
+
+		function handleNameEntry(event) {
+			const usernameDisplayElement = document.querySelector('.js-user');
+			usernameDisplayElement.innerHTML = document.querySelector('.js-username').value;
+		}
+
 		let message = ' Computers chooses '
 		let result = {
 			computer: 0,
@@ -83,7 +91,6 @@
 			logResult();
 		}
 	</script>
-
 </body>
 
 
