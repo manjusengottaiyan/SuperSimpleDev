@@ -6,7 +6,9 @@
 </head>
 
 <body>
-	<input class="js-username" type="text" onkeydown="handleNameEntry(event)" placeholder="enter name" />
+	<p class="js-typing"></p>
+	<input class="js-username" type="text" onkeydown="handleOnKeyDown(event)" onkeyup="handleOnKeyUp(event)"
+		placeholder="enter name" />
 	<p class="js-user"></p>
 	<p>Rock Paper Scissorss</p>
 	<button onclick="playRockPaperScissors('Rock')">Rock</button>
@@ -15,9 +17,14 @@
 	<button onclick="Reset()">Reset</button>
 	<script>
 
-		function handleNameEntry(event) {
+		function handleOnKeyDown(event) {
+			document.querySelector('.js-typing').innerHTML = "typing...";
 			const usernameDisplayElement = document.querySelector('.js-user');
 			usernameDisplayElement.innerHTML = document.querySelector('.js-username').value;
+		}
+		function handleOnKeyUp(event) {
+			document.querySelector('.js-typing').innerHTML = "";
+
 		}
 
 		let message = ' Computers chooses '
