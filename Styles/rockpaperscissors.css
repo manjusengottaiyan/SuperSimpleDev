@@ -1,0 +1,36 @@
+.round {
+  background: transparent;
+  height: 5%;
+  width: 5%;
+  cursor: pointer;
+  padding: 8px;
+  margin: 5px;
+}
+
+.hideElement {
+  display: none;
+}
+
+.img-border {
+  border-style: solid;
+  border-color: white;
+  border-radius: 50%;
+}
+
+body {
+  background-color: black;
+}
+
+.user-button {
+  background-color: rgb(87, 81, 81);
+  border: 2px, white;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 45%;
+  position: relative;
+  top: -20px;
+}
+
+p {
+  color: white;
+}

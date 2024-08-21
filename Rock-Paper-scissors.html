@@ -3,102 +3,21 @@
 
 <head>
 	<title>Rock-Paper-Scissors</title>
-</head>
+	<link rel="stylesheet" href="Styles/rockpaperscissors.css">
+	<script type="text/javascript" src="Scripts/rockpaperscissor.js"></script>
 
-<body>
-	<p class="js-typing"></p>
-	<input class="js-username" type="text" onkeydown="handleOnKeyDown(event)" onkeyup="handleOnKeyUp(event)"
-		placeholder="enter name" />
+<body onload="onPageLoad">
+	<p class="js-typing"></p><input class="js-username" type="text" onkeydown="handleOnKeyDown(event)"
+		onkeyup="handleOnKeyUp(event)" placeholder="enter name" />
 	<p class="js-user"></p>
-	<p>Rock Paper Scissorss</p>
-	<button onclick="playRockPaperScissors('Rock')">Rock</button>
-	<button onclick="playRockPaperScissors('Paper')">Paper</button>
-	<button onclick="playRockPaperScissors('Scissors')">Scissors</button>
-	<button onclick="Reset()">Reset</button>
-	<script>
-
-		function handleOnKeyDown(event) {
-			document.querySelector('.js-typing').innerHTML = "typing...";
-			const usernameDisplayElement = document.querySelector('.js-user');
-			usernameDisplayElement.innerHTML = document.querySelector('.js-username').value;
-		}
-		function handleOnKeyUp(event) {
-			document.querySelector('.js-typing').innerHTML = "";
-
-		}
-
-		let message = ' Computers chooses '
-		let result = {
-			computer: 0,
-			you: 0,
-			tie: 0
-		}
-		localStorage.setItem("result", result);
-
-		function logResult() {
-			console.log(result);
-			localStorage.setItem('result', JSON.stringify(result));
-		}
-
-		function playRockPaperScissors(ourMove) {
-			let computerMove = computerRoll();
-			if (computerMove === ourMove) {
-				console.log("Tie." + message + computerMove);
-				result.tie++;
-				logResult();
-			}
-			else if (computerMove == "Rock" && ourMove == "Paper") {
-				console.log("you win!" + message + computerMove)
-				result.you++;
-				logResult();
-			}
-			else if (computerMove == "Rock" && ourMove == "Scissors") {
-				console.log("Computer wins!" + message + computerMove)
-				result.computer++;
-				logResult();
-			}
-			else if (computerMove == "Paper" && ourMove == "Rock") {
-				console.log("Computer wins!" + message + computerMove)
-				result.computer++;
-				logResult();
-			}
-			else if (computerMove == "Paper" && ourMove == "Scissors") {
-				console.log("you win!" + message + computerMove)
-				result.you++;
-				logResult();
-			}
-			else if (computerMove == "Scissors" && ourMove == "Paper") {
-				console.log("Computer wins!" + message + computerMove)
-				result.computer++;
-				logResult();
-			}
-			else if (computerMove == "Scissors" && ourMove == "Rock") {
-				console.log("you win!" + message + computerMove)
-				result.you++
-				logResult();
-			}
-			else {
-				console.log(ourMove + computerMove);
-			}
-		}
-		function computerRoll() {
-			let randomNumber = Math.random();
-			console.log(randomNumber);
-			if (randomNumber >= 0 && randomNumber < 1 / 3)
-				return "Rock"
-			else if (randomNumber > 1 / 3 && randomNumber < 2 / 3)
-				return "Paper"
-			else
-				return "Scissors";
-		}
-		function Reset() {
-			result.computer = 0;
-			result.you = 0;
-			result.tie = 0;
-			logResult();
-		}
-	</script>
+	<p>Rock Paper Scissorss</p><img class="round img-border" src="Images/rock.png"
+		onclick="playRockPaperScissors('Rock')" /><img class="round img-border" src="Images/paper.png"
+		onclick="playRockPaperScissors('Paper')" /><img class="round img-border" src="Images/scissors.png"
+		onclick="playRockPaperScissors('Scissors')" />
+	<button class="user-button" onclick="Reset()">Reset</button>
+	<p class="js-result"></p>
+	<p class="js-chosen-options hideElement">You choose <img class="js-your-move round"> Computer chooses <img
+			class="js-computer-move round"> </p>
 </body>
-
 
 </html>
